@@ -1,3 +1,19 @@
-branches:
-  only:
-    - source
+language: go
+dist: trusty
+
+before_script:
+  - wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_0.53_Linux-64bit.deb
+  - sudo dpkg -i hugo_0.53_Linux-64bit.deb
+
+script:
+  - hugo -v
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep-history: true
+  target-branch: master
+  local-dir: public
+  on:
+    branch: source
