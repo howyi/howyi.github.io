@@ -4,7 +4,7 @@ dist: trusty
 install: true
 
 before_script:
-  - wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_0.53_Linux-64bit.deb
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.53/hugo_0.53_Linux-64bit.deb
   - sudo dpkg -i hugo_0.53_Linux-64bit.deb
 
 script:
