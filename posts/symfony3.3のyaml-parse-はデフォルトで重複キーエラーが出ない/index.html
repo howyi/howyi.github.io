@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>Posts | 🐔 / howyi</title>
+<title>Symfony3.3のYaml::parse()はデフォルトで重複キーエラーが出ない | 🐔 / howyi</title>
 
 
 
@@ -68,55 +68,92 @@
 </section>
 <section class="section">
   <div class="container">
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+    </div>
+    <h2 class="subtitle is-6">August 6, 2017</h2>
+    <h1 class="title">Symfony3.3のYaml::parse()はデフォルトで重複キーエラーが出ない</h1>
     
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6">August 6, 2017</h2>
-      <h1 class="title"><a href="http://howyi.github.io/posts/symfony3.3%E3%81%AEyaml-parse-%E3%81%AF%E3%83%87%E3%83%95%E3%82%A9%E3%83%AB%E3%83%88%E3%81%A7%E9%87%8D%E8%A4%87%E3%82%AD%E3%83%BC%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%8C%E5%87%BA%E3%81%AA%E3%81%84/">Symfony3.3のYaml::parse()はデフォルトで重複キーエラーが出ない</a></h1>
-      <div class="content">
-        キーが重複したYAMLを、Symfony3.3のYaml::parse()でパースするとサイレントで片方の値が消滅する話
+    <div class="content">
+      <p>キーが重複したYAMLを、Symfony3.3のYaml::parse()でパースするとサイレントで片方の値が消滅する話</p>
 
-        
-        <a class="button is-link" href="http://howyi.github.io/posts/symfony3.3%E3%81%AEyaml-parse-%E3%81%AF%E3%83%87%E3%83%95%E3%82%A9%E3%83%AB%E3%83%88%E3%81%A7%E9%87%8D%E8%A4%87%E3%82%AD%E3%83%BC%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%8C%E5%87%BA%E3%81%AA%E3%81%84/" style="height:28px">
-          Read more
-        </a>
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6">January 16, 2017</h2>
-      <h1 class="title"><a href="http://howyi.github.io/posts/my-first-post/">My First Post</a></h1>
-      <div class="content">
-        test
-        
-      </div>
-    </article>
+<h3 id="問題">問題</h3>
+
+<pre><code class="language-php">$text = &lt;&lt;&lt;YAML
+hoge: 300
+foo:  400
+bar:  500
+foo:  600
+YAML;
+
+var_dump(Symfony\Component\Yaml\Yaml::parse($text));
+</code></pre>
+
+<p>これは <code>foo</code> の重複キーエラーが出るかな、と思いきや出ない。</p>
+
+<pre><code class="language-bash">% php test.php
+test.php:12:
+array(3) {
+  'hoge' =&gt;
+  int(300)
+  'foo' =&gt;
+  int(400)
+  'bar' =&gt;
+  int(500)
+}
+</code></pre>
+
+<p>どうやら重複した場合は <strong>最初に入力された値</strong> が使われている。</p>
+
+<h3 id="原因">原因</h3>
+
+<p>パース処理を追った所、エラー制御演算子によってエラーが表示されていないようだった</p>
+
+<p><a href="https://github.com/symfony/yaml/blob/3.3/Parser.php#L340">https://github.com/symfony/yaml/blob/3.3/Parser.php#L340</a></p>
+
+<pre><code>- 重複キーを勝手にマッピングするのは3.2からは非推奨ですよ
+- 4.0からは `\Symfony\Component\Yaml\Exception\ParseException` が出ますよ
+</code></pre>
+
+<p>という感じ</p>
+
+<h3 id="対策">対策</h3>
+
+<p>とりあえずエラーを出したかったので <code>E_USER_DEPRECATED</code> に <code>set_error_handler()</code> を行うことで対処した</p>
+
+<pre><code class="language-php">$text = &lt;&lt;&lt;YAML
+hoge: 300
+foo:  400
+bar:  500
+foo:  600
+YAML;
+
+set_error_handler(
+    function ($errno, $errstr, $errfile, $errline) {
+        throw new \ErrorException(
+            $errstr,
+            0,
+            $errno,
+            $errfile,
+            $errline
+        );
+    },
+    E_USER_DEPRECATED
+);
+var_dump(Symfony\Component\Yaml\Yaml::parse($text));
+restore_error_handler();
+</code></pre>
+
+<pre><code class="language-bash">% php test.php
+PHP Fatal error:  Uncaught ErrorException: Duplicate key &quot;foo&quot; detected whilst parsing YAML. Silent handling of duplicate mapping keys in YAML is deprecated since version 3.2 and will throw \Symfony\Component\Yaml\Exce
+ption\ParseException in 4.0. in vendor\symfony\yaml\Parser.php:340
+</code></pre>
+      
+    </div>
     
   </div>
 </section>
-<section class="section">
-  <div class="container">
-    <nav class="level is-mobile">
-      <div class="level-left">
-        <div class="level-item">
-          
-        </div>
-      </div>
-      <div class="level-right is-marginless">
-        <div class="level-item">
-          
-        </div>
-      </div>
-    </nav>
-  </div>
-</section>
+
 
 <section class="section">
   <div class="container has-text-centered">
@@ -129,5 +166,4 @@
 
 </body>
 </html>
-
 

@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on log</title>
+    <title>Posts on 🐔 / howyi</title>
     <link>http://howyi.github.io/posts/</link>
-    <description>Recent content in Posts on log</description>
+    <description>Recent content in Posts on 🐔 / howyi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Wed, 16 Jan 2019 18:12:26 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 06 Aug 2017 11:46:26 +0900</lastBuildDate>
     
 	<atom:link href="http://howyi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Symfony3.3のYaml::parse()はデフォルトで重複キーエラーが出ない</title>
+      <link>http://howyi.github.io/posts/symfony3.3%E3%81%AEyaml-parse-%E3%81%AF%E3%83%87%E3%83%95%E3%82%A9%E3%83%AB%E3%83%88%E3%81%A7%E9%87%8D%E8%A4%87%E3%82%AD%E3%83%BC%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%8C%E5%87%BA%E3%81%AA%E3%81%84/</link>
+      <pubDate>Sun, 06 Aug 2017 11:46:26 +0900</pubDate>
+      
+      <guid>http://howyi.github.io/posts/symfony3.3%E3%81%AEyaml-parse-%E3%81%AF%E3%83%87%E3%83%95%E3%82%A9%E3%83%AB%E3%83%88%E3%81%A7%E9%87%8D%E8%A4%87%E3%82%AD%E3%83%BC%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%8C%E5%87%BA%E3%81%AA%E3%81%84/</guid>
+      <description>&lt;p&gt;キーが重複したYAMLを、Symfony3.3のYaml::parse()でパースするとサイレントで片方の値が消滅する話&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>My First Post</title>
       <link>http://howyi.github.io/posts/my-first-post/</link>
-      <pubDate>Wed, 16 Jan 2019 18:12:26 +0900</pubDate>
+      <pubDate>Mon, 16 Jan 2017 18:12:26 +0900</pubDate>
       
       <guid>http://howyi.github.io/posts/my-first-post/</guid>
-      <description></description>
+      <description>test</description>
     </item>
     
   </channel>
