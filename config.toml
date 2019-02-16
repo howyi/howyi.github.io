@@ -1,4 +1,42 @@
 baseURL = "http://howyi.github.io/"
 languageCode = "ja-jp"
-title = "log"
-theme = "ananke"
+title = "howyi"
+theme = "hugo-identity-theme"
+
+
+[params]
+
+  # Personal data
+  [params.personal]
+    # If name is not set, author is used
+    name = "howyi"
+    # Avatars can be written to images/avatars/
+    avatar = "avatar.png"
+    position = "ほい / Hayashi Takuya"
+#    livesIn = "Hokkaido, Japan"
+#    scope = [
+#        "UX for [member dashboard](#)",
+#        "Maintainer for [awesome-project](#)",
+#        "Open Source [community management](#)"
+#      ]
+    biography = """
+    """
+
+  [[params.social]]
+    title = "Twitter"
+    icon = "fa-twitter"
+    link = "https://twitter.com/howyi_lq"
+    target = "https://twitter.com/howyi_lq"
+
+  [[params.social]]
+    title = "Email"
+    icon = "fa-envelope"
+    link = "mailto:howyi.lq@gmail.com"
+    target = "mailto:howyi.lq@gmail.com"
+
+  [[params.social]]
+    title = "GitHub"
+    icon = "fa-github"
+    link = "https://github.com/howyi"
+    target = "https://github.com/howyi"
+
