@@ -3,23 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://howyi.github.io/posts/symfony3.3%E3%81%AEyaml-parse-%E3%81%AF%E3%83%87%E3%83%95%E3%82%A9%E3%83%AB%E3%83%88%E3%81%A7%E9%87%8D%E8%A4%87%E3%82%AD%E3%83%BC%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%8C%E5%87%BA%E3%81%AA%E3%81%84/</loc>
-    <lastmod>2017-08-06T11:46:26+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://howyi.github.io/posts/my-first-post/</loc>
-    <lastmod>2017-01-16T18:12:26+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://howyi.github.io/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://howyi.github.io/posts/</loc>
-    <lastmod>2017-08-06T11:46:26+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -30,7 +14,6 @@
   
   <url>
     <loc>http://howyi.github.io/</loc>
-    <lastmod>2017-08-06T11:46:26+09:00</lastmod>
     <priority>0</priority>
   </url>
   
