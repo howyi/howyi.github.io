@@ -17,5 +17,7 @@ deploy:
   keep-history: true
   target-branch: master
   local-dir: public
+  name: howyi
+  email: howyi.lq@gmail.com
   on:
     branch: source
