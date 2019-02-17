@@ -20,7 +20,9 @@ theme = "hugo-identity-theme"
 #        "Open Source [community management](#)"
 #      ]
     biography = """
+OSS Developer  
     """
+# Contribute to [atom](https://github.com/atom/find-and-replace/pull/966), [Sentry](https://github.com/getsentry/sentry-php/pull/632)
 
   [[params.social]]
     title = "Twitter"
