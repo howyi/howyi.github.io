@@ -1,4 +1,4 @@
-baseURL = "http://howyi.github.io/"
+baseURL = "https://howyi.github.io/"
 languageCode = "ja-JP"
 title = "howyi"
 theme = "hugo-split-theme"
