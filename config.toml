@@ -1,44 +1,63 @@
 baseURL = "http://howyi.github.io/"
-languageCode = "ja-jp"
+languageCode = "ja-JP"
 title = "howyi"
-theme = "hugo-identity-theme"
+theme = "hugo-split-theme"
+disableKinds = ["section", "taxonomy", "taxonomyTerm", "RSS", "sitemap"]
 
+# Enter your tracking code to enable Google Analytics
+googleAnalytics = ""
 
 [params]
 
-  # Personal data
-  [params.personal]
-    # If name is not set, author is used
-    name = "howyi"
-    # Avatars can be written to images/avatars/
-    avatar = "avatar.png"
-    position = "ほい / Hayashi Takuya"
-#    livesIn = "Hokkaido, Japan"
-#    scope = [
-#        "UX for [member dashboard](#)",
-#        "Maintainer for [awesome-project](#)",
-#        "Open Source [community management](#)"
-#      ]
-    biography = """
-OSS Developer  
-Contribute to [atom](https://github.com/atom/find-and-replace/pull/966), [Sentry](https://github.com/getsentry/sentry-php/pull/632)
-    """
+  # Metadata for search engines and social sharing
+  author = "howyi"
+  shareImage = "images/social.jpg"
+  twitterHandle = "howyi_lq"
 
-  [[params.social]]
-    title = "Twitter"
-    icon = "fa-twitter"
-    link = "https://twitter.com/howyi_lq"
-    target = "https://twitter.com/howyi_lq"
+  # Favicon
+  favicon = "favicon.ico"
 
-  [[params.social]]
-    title = "Email"
-    icon = "fa-envelope"
-    link = "mailto:howyi.lq@gmail.com"
-    target = "mailto:howyi.lq@gmail.com"
+  # Section - Visual
+  [params.visual]
 
-  [[params.social]]
-    title = "GitHub"
-    icon = "fa-github"
-    link = "https://github.com/howyi"
-    target = "https://github.com/howyi"
+    # Image
+    [params.visual.image]
+      enable = true
+      file = "images/background.jpg"
+      position = "center center"
 
+  # Links
+  #
+  # Links List #1
+  [[params.links]]
+    [params.links.list1]
+      heading = "Develop"
+
+      [[params.links.list1.link]]
+        text = "GitHub"
+        url = "https://github.com/howyi"
+
+      [[params.links.list1.link]]
+        text = "Speaker Deck"
+        url = "https://speakerdeck.com/howyi"
+
+      [[params.links.list1.link]]
+        text = "DEV"
+        url = "https://dev.to/howyi"
+
+  # Links List #2
+  [[params.links]]
+    [params.links.list2]
+      heading = "Social"
+
+      [[params.links.list2.link]]
+        text = "Email"
+        url = "mailto::howyi.lq@gmail.com"
+
+      [[params.links.list2.link]]
+        text = "Twitter"
+        url = "https://twitter.com/howyi_lq"
+
+      [[params.links.list2.link]]
+        text = "Facebook"
+        url = "https://www.facebook.com/howyi.lq"
