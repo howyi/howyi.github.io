@@ -3,7 +3,7 @@ title = "howyi / ほい"
 tagline = "🐔 Hayashi Takuya"
 +++
 
-💻📱🎮🎸🎧☕️    
+💻📱🎮🎸🎧☕️🏍    
 OSS Developer  
 
 <img src="https://www.certmetrics.com/api/ob/image/amazon/c/1" width="100px">  
